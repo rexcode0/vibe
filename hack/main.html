@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Only Messenger</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>VibeChat</h1>
+            <h2 id="userGreeting">Welcome, Guest!</h2> <!-- Display the user's name here -->
+            <button class="logout-btn">Log Out</button>
+        </header>
+
+        <!-- Chat History -->
+        <div class="chat-history" id="chatBox">
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- Chatbox -->
+        <div class="chatbox">
+
+            <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+
+            <!-- Button to send the message -->
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+<!-- Emoji Suggestions (Dynamically Added) -->
