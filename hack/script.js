@@ -1,61 +1,69 @@
 const socket = io();
-const sender = sessionStorage.getItem("sender");
-const reciever = sessionStorage.getItem("reciever");
-// Listen for messages
+const user = sessionStorage.getItem("user");
+const receiver = sessionStorage.getItem("receiver");
+const chatType = sessionStorage.getItem("chat");
+const messageBox = document.querySelector("#chatBox");
 socket.on("message", (message) => {
+    
 
-    if (message[1] === sender) {
-        console.log("New message received:", message);
-        const messageElement = document.createElement('div');
-        messageElement.textContent = `${message[0]}: ${message[2]}`;
-        messageElement.classList.add('received');
-        chatBox.appendChild(messageElement);
+    const messageElement = document.createElement('div');
+    const nameElement = document.createElement('strong');
+
+    if (chatType === "group") {
+        if (message[0] == user) {
+           
+            nameElement.textContent = message[0]; // user name
+            messageElement.textContent = `: ${message[2]}`;
+            messageElement.classList.add('sent');
+            messageElement.prepend(nameElement); // Prepend the name to the message
+            messageBox.appendChild(messageElement);
+        }
+
+        else {
+           
+            nameElement.textContent = message[0]; // user name in group chat
+            messageElement.classList.add('received');
+            messageElement.textContent = `: ${message[2]}`;
+            messageElement.prepend(nameElement); // Prepend the name to the message
+            messageBox.appendChild(messageElement);
+
+        }
+    } else if (message[3] == 'private') {
+        if (message[1] === user) {
+            nameElement.textContent = message[0]; // user name
+            messageElement.textContent = `: ${message[2]}`;
+            messageElement.classList.add('received');
+            messageElement.prepend(nameElement); // Prepend the name to the message
+            messageBox.appendChild(messageElement);
+        }
+        if (message[0] == user) {
+            nameElement.textContent = message[0]; // user name
+            messageElement.textContent = `: ${message[2]}`;
+            messageElement.classList.add('sent');
+            messageElement.prepend(nameElement); // Prepend the name to the message
+            messageBox.appendChild(messageElement);
+        }
     }
-    if(message[0]===sender)
-    {
-        console.log("New message received:", message);
-        const messageElement = document.createElement('div');
-        messageElement.textContent = `${message[0]}: ${message[2]}`;
-        messageElement.classList.add('sent');
-        chatBox.appendChild(messageElement);
-    }
-});
+}
+);
 
 // Send a test message
-
-
 window.onload = function () {
-    // Retrieve the user's name from sessionStorage (default to 'Guest' if not found)
-    const userName = sessionStorage.getItem('sender') || 'Guest';
 
-    // Display the user's name in the chat interface
-    document.getElementById('userGreeting').textContent = `Welcome, ${userName}!`;
-
+    document.getElementById('userGreeting').textContent = `Welcome, ${user}!`;
 
     const messageInput = document.getElementById('messageInput');
     const sendButton = document.getElementById('sendButton');
-    const chatBox = document.getElementById('chatBox');
+    const message = document.getElementById('message');
 
-
-    chatBox.scrollTop = chatBox.scrollHeight;
 };
-
-
 
 // Send message to the server when the 'Send' button is clicked
 sendButton.addEventListener('click', function () {
     let message = messageInput.value;
     if (message.trim()) {
-        // Convert the message to emojis
+        socket.emit("message", [user, receiver, message, chatType]);
 
-
-        // Send the emoji-converted message to the server
-        socket.emit("message", [sender, reciever, message]);
-
-        // Scroll chat box to the bottom when a new message is added
-        chatBox.scrollTop = chatBox.scrollHeight;
-
-        // Clear the input after sending the message
         messageInput.value = '';
     }
 });
@@ -63,8 +71,6 @@ sendButton.addEventListener('click', function () {
 // Allow sending messages with the 'Enter' key
 messageInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
-        console.log("enter pressed");
         sendButton.click();
     }
 });
-

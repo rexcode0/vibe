@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emoji Only Messenger</title>
+    <title>VibeChat</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -12,19 +12,18 @@
         <!-- Header -->
         <header class="app-header">
             <h1>VibeChat</h1>
-            <h2 id="userGreeting">Welcome, Guest!</h2> <!-- Display the user's name here -->
-            <button class="logout-btn">Log Out</button>
+            <h2 id="userGreeting">Guest</h2> <!-- Display the user's name here -->
+            
         </header>
 
         <!-- Chat History -->
-        <div class="chat-history" id="chatBox">
+        <div class="messageBox" id="chatBox">
             <!-- Messages will be dynamically added here -->
         </div>
 
         <!-- Chatbox -->
         <div class="chatbox">
             <!-- Emoji Suggestions (Dynamically Added) -->
-            <div class="emoji-suggestions" id="emojiSuggestions"></div>
             
             <!-- Input field for the message -->
             <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
@@ -33,7 +32,8 @@
             <button id="sendButton">Send</button>
         </div>
     </div>
-    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>

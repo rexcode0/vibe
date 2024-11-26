@@ -3,17 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Emoji Messenger</title>
+    <title>Welcome to VibeChat</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="welcome-container">
-        <h1>Welcome to VibeChat: A new world Emoji Messenger</h1>
+    <div class="scrollable-container">
+        <!-- Welcome Section -->
+        <div class="welcome-container">
+            <h1>Welcome to VibeChat</h1>
+            <p>Your conversations, redefined with emojis.</p>
+            <div class="input-container">
+                <input type="text" placeholder="Enter Sender Name" id="user">
+                <input type="text" placeholder="Enter Recipient Name" id="receiver">
+            </div>
+            <button id="startChatBtn">Start Private Chat</button>
+            <button id="startGroupChatBtn">Start Group Chat</button>
 
-        <p>Start chatting using emojis and enjoy a new experience of chatting</p>
-        <input type="text" placeholder="sender" id="sender">
-        <input type="text" placeholder="recipient" id="receiver">
-        <button id="startChatBtn">Start Chat</button>
+        </div>
+
+        <!-- Key Features Section -->
+        <section class="key-features features-section">
+            <h2>Key Features</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="icon">🎨</div>
+                    <h3>Emoji-First Communication</h3>
+                    <p>Replace words with emojis to make chatting fun and creative.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Real-Time Messaging</h3>
+                    <p>Instantly send and receive messages without delays.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>Intelligent Suggestions</h3>
+                    <p>Get emoji suggestions that match your typing in real time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why VibeChat Section -->
+        <section class="why-vibechat">
+            <h2>Why Choose VibeChat?</h2>
+            <div class="why-cards">
+                <div class="why-card">
+                    <div class="icon">💬</div>
+                    <h3>Expressive Conversations</h3>
+                    <p>
+                        Emojis say what words can’t. Transform your chats into fun, colorful expressions.
+                    </p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">💠</div>
+                    <h3>uses ai to convert </h3>
+                    <p>
+                        Uses si to convert the text to emoji in the backend
+                    </p>
+                </div>
+                <div class="why-card">
+                    <div class="icon">🌟</div>
+                    <h3>Innovative Features</h3>
+                    <p>
+                        Intelligent emoji suggestions, custom themes, and more to elevate your chatting experience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Features Section -->
+        <section class="additional-features features-section">
+            <h2>Additional Features</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>🔒 Privacy First</h3>
+                    <p>Your conversations are encrypted for maximum security.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎭 Greate UI/UX</h3>
+                    <p>has a user friendly , minimalistic User interface , </p>
+                </div>
+                <div class="info-card">
+                    <h3>🌐 Cross-Platform</h3>
+                    <p>Access your chats seamlessly across mobile, tablet, and desktop devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <blockquote>
+                "VibeChat is like a breath of fresh air in the messaging world. It's fun, creative, and so easy to use!"
+                <cite>- Harsh K.</cite>
+            </blockquote>
+            <blockquote>
+                "The emoji-first approach is brilliant. I feel more expressive, and my chats are much more engaging now."
+                <cite>- Mahesh .R</cite>
+            </blockquote>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Created By: Om Pandey, Ashish Sharma, Deepak Singh, Raja Rautela, Ajay</p>
+            <br>
+            <p>&copy; 2024 VibeChat | Designed to Express</p>
+        </footer>
     </div>
     <script src="index.js"></script>
 </body>
