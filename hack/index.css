@@ -110,7 +110,7 @@ button:focus {
     color: #0066cc;
 }
 
-#username {
+input{
     flex: 1;
     padding: 15px;
     border: none;

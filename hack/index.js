@@ -1,13 +1,15 @@
 // JavaScript to redirect to the Messenger page when the button is clicked
 document.getElementById('startChatBtn').addEventListener('click', function () {
-    const username = document.getElementById("username").value;
+    const sender = document.getElementById("sender").value;
+    const receiver = document.getElementById("receiver").value;
     console.log("button pressed");
-    if (username.trim() === "") {
+    if (receiver.trim() === "" || sender.trim() === "") {
         alert("enter a username to continue");
     }
     else {
-        sessionStorage.setItem("username", username);
-        console.log("username",username);
+        sessionStorage.setItem("reciever", receiver);
+        sessionStorage.setItem("sender", sender);
+        console.log(`${sender} : ${receiver}`);
         window.location.href = 'main.html'; // Redirects to messenger page
 
     }
